@@ -70,7 +70,7 @@ public class Move_Player : MonoBehaviour
      
       
        
-        if (!isInMove)
+        if (!isInMove || animator.GetBool("IsAttacking") == false)
         {
             Flip();
         }
@@ -88,7 +88,7 @@ public class Move_Player : MonoBehaviour
     void FixedUpdate()
     {
         onLand();
-        if (!isInMove)
+        if (!isInMove && animator.GetBool("IsAttacking") == false && animator.GetBool("IsAttacking2") == false)
         {
             Move();
         }

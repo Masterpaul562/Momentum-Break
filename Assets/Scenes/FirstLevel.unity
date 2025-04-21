@@ -1496,29 +1496,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 875018907417383519, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5373297951464293264, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 669721901}
-    - target: {fileID: 6410249219145538071, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
-      propertyPath: m_Layer
-      value: 6
+    - target: {fileID: 7161425161820038628, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
+      propertyPath: m_Offset.x
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6410249219145538071, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
+    - target: {fileID: 7161425161820038628, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 7882503286543536801, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3231945
+      value: -1.27
       objectReference: {fileID: 0}
     - target: {fileID: 7882503286543536801, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.96
+      value: -3.77
       objectReference: {fileID: 0}
     - target: {fileID: 7882503286543536801, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1551,6 +1547,14 @@ PrefabInstance:
     - target: {fileID: 7882503286543536801, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649350586074884997, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649350586074884997, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
