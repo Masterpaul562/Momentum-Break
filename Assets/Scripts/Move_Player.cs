@@ -52,6 +52,7 @@ public class Move_Player : MonoBehaviour
     [SerializeField] private GameObject punchProjectile;
     [SerializeField] private Transform spawnLocation;
     
+    
 
 
 
@@ -88,7 +89,8 @@ public class Move_Player : MonoBehaviour
     void FixedUpdate()
     {
         onLand();
-        if (!isInMove && animator.GetBool("IsAttacking") == false && animator.GetBool("IsAttacking2") == false)
+        //||  animator.GetComponent<ArmFiringEnd>().done
+        if (!isInMove && animator.GetBool("IsAttacking") == false && animator.GetBool("IsAttacking2") == false )
         {
             Move();
         }
