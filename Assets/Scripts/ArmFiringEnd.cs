@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class ArmFiringEnd : StateMachineBehaviour
 {
-    public bool done;
+    public GameObject Player;
+    void Awake()
+    {
+        Player = GameObject.FindWithTag("Player");
+        Player.GetComponent<Move_Player>().armFiringDone = true;
+    }
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-    done = false;    
+    Player.GetComponent<Move_Player>().armFiringDone = false;    
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -20,7 +25,7 @@ public class ArmFiringEnd : StateMachineBehaviour
     //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       done = true;
+        Player.GetComponent<Move_Player>().armFiringDone = true;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

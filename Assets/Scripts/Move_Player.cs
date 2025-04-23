@@ -11,6 +11,7 @@ public class Move_Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public Animator animator;
     bool Grounded;
+    public bool armFiringDone = true;
 
     //Player Input
     private float horizontalInput;
@@ -71,7 +72,7 @@ public class Move_Player : MonoBehaviour
      
       
        
-        if (!isInMove || animator.GetBool("IsAttacking") == false)
+        if (!isInMove && animator.GetBool("IsAttacking") == false && armFiringDone)
         {
             Flip();
         }
@@ -90,7 +91,7 @@ public class Move_Player : MonoBehaviour
     {
         onLand();
         //||  animator.GetComponent<ArmFiringEnd>().done
-        if (!isInMove && animator.GetBool("IsAttacking") == false && animator.GetBool("IsAttacking2") == false )
+        if (!isInMove && animator.GetBool("IsAttacking") == false && animator.GetBool("IsAttacking2") == false && armFiringDone)
         {
             Move();
         }
@@ -181,8 +182,7 @@ public class Move_Player : MonoBehaviour
                 isInMove = true;
                 rb.gravityScale = 0;
                     animator.SetBool("IsInSlam", true);
-                  //  animator.SetBool("DoubleJump", false);
-                  //  animator.SetBool("IsJumping", false);
+                
                 }
         }
         if (Input.GetKeyUp(specailAtkKey) && !IsGrounded())
@@ -220,7 +220,7 @@ public class Move_Player : MonoBehaviour
         if (Input.GetKeyDown(attackKey))
         {
             int coinFlip = Random.Range(1,3);
-            Debug.Log(coinFlip);
+            
             if (coinFlip > 1)
             {
                 animator.SetBool("IsAttacking", true);
@@ -233,7 +233,7 @@ public class Move_Player : MonoBehaviour
            
             if (hitResult.collider != null)
             {
-                Debug.Log(hitResult.collider.gameObject.name);
+                
                 if (hitResult.collider.tag == "Enemy")
                 {
                     var enemyRef = hitResult.collider.GetComponent<EnemyBase>();
