@@ -31,6 +31,7 @@ public class Move_Player : MonoBehaviour
     // Normal Punch
     public bool canPunch = true;
     public bool punched;
+    public bool isAttacking;
 
     //Special Move Variables
     private bool isInMove = false;
@@ -72,9 +73,10 @@ public class Move_Player : MonoBehaviour
 
     void Update()
     {
-     
+        Debug.Log(isAttacking);
+        animator.SetBool("Punched", punched);
        
-        if (!isInMove  && armFiringDone)
+        if (!isInMove  && armFiringDone && !isAttacking)
         {
             Flip();
         }
@@ -86,15 +88,18 @@ public class Move_Player : MonoBehaviour
         } else if (!isInMove) 
        {
            rb.gravityScale = 15;
-       }      
-            animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));       
+       }
+       
+        
+            animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        
     }
     void FixedUpdate()
     {
         onLand();
-        //||  animator.GetComponent<ArmFiringEnd>().done
-        if (!isInMove && armFiringDone)
-        {
+       
+        if (!isInMove && armFiringDone && !isAttacking)
+        {            
             Move();
         }
     }
@@ -103,8 +108,9 @@ public class Move_Player : MonoBehaviour
 
         Vector2 facingDirection = new Vector2(transform.localScale.x, 0);
         Vector2 boxCastPos = new Vector2(transform.position.x, transform.position.y-0.3f);
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-
+       
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+        
 
         // Shooting Punch
         if (Input.GetKey(specailAtkKey)&& punchCoolDown && IsGrounded())
@@ -219,12 +225,15 @@ public class Move_Player : MonoBehaviour
 
 
         //Normal Attack
-        if (Input.GetKeyDown(attackKey))
+        if (Input.GetKeyDown(attackKey) && IsGrounded())
         {
-            if (canPunch)
+            if (canPunch )
             {
+                rb.velocity = new Vector2(0, 0);
             punched = true;
-            canPunch = false;                                                 
+            canPunch = false;
+            isAttacking = true;
+                animator.SetFloat("Speed", 0);
            // StartCoroutine(AttackAnimation());
             RaycastHit2D hitResult = Physics2D.BoxCast(boxCastPos,new Vector2 (1,1), 0f, facingDirection, 1f, ~(1<<7)|(1<<6));            
             if (hitResult.collider != null)
@@ -247,7 +256,7 @@ public class Move_Player : MonoBehaviour
             doubleJumped = false;   
         }
 
-if (Input.GetKeyDown(jumpKey) && !isInMove)
+if (Input.GetKeyDown(jumpKey) && !isInMove && !isAttacking)
 {
     if (IsGrounded() || doubleJumped)
     {

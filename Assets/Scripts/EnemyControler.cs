@@ -26,7 +26,7 @@ private bool isFacingRight = true;
             rb.constraints = ~RigidbodyConstraints2D.FreezePositionX;
              rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
          }else {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX| RigidbodyConstraints2D.FreezeRotation;;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX| RigidbodyConstraints2D.FreezeRotation;
          }
        
        
