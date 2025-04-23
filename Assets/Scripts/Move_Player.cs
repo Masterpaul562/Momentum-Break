@@ -28,6 +28,9 @@ public class Move_Player : MonoBehaviour
     public LayerMask whatIsGround;
     Rigidbody2D rb;
 
+    // Normal Punch
+    public bool canPunch = true;
+    public bool punched;
 
     //Special Move Variables
     private bool isInMove = false;
@@ -70,9 +73,8 @@ public class Move_Player : MonoBehaviour
     void Update()
     {
      
-      
        
-        if (!isInMove && animator.GetBool("IsAttacking") == false && armFiringDone)
+        if (!isInMove  && armFiringDone)
         {
             Flip();
         }
@@ -91,7 +93,7 @@ public class Move_Player : MonoBehaviour
     {
         onLand();
         //||  animator.GetComponent<ArmFiringEnd>().done
-        if (!isInMove && animator.GetBool("IsAttacking") == false && animator.GetBool("IsAttacking2") == false && armFiringDone)
+        if (!isInMove && armFiringDone)
         {
             Move();
         }
@@ -131,7 +133,7 @@ public class Move_Player : MonoBehaviour
                 shouldFire= !shouldFire;
                 punchCoolDown = !punchCoolDown;
                 animator.SetBool("IsArmFiring",false); 
-                var newProjectile = Instantiate(punchProjectile, spawnLocation.position, spawnLocation.rotation);
+                var newProjectile = Instantiate(punchProjectile, spawnLocation.position, transform.rotation);
                
                 if (isFacingRight)
                 {
@@ -219,18 +221,12 @@ public class Move_Player : MonoBehaviour
         //Normal Attack
         if (Input.GetKeyDown(attackKey))
         {
-            int coinFlip = Random.Range(1,3);
-            
-            if (coinFlip > 1)
+            if (canPunch)
             {
-                animator.SetBool("IsAttacking", true);
-            }else if (coinFlip < 2)
-            {
-                animator.SetBool("IsAttacking2", true);
-            }
-            StartCoroutine(AttackAnimation());
-            RaycastHit2D hitResult = Physics2D.BoxCast(boxCastPos,new Vector2 (1,1), 0f, facingDirection, 1f, ~(1<<7)|(1<<6));   
-           
+            punched = true;
+            canPunch = false;                                                 
+           // StartCoroutine(AttackAnimation());
+            RaycastHit2D hitResult = Physics2D.BoxCast(boxCastPos,new Vector2 (1,1), 0f, facingDirection, 1f, ~(1<<7)|(1<<6));            
             if (hitResult.collider != null)
             {
                 
@@ -241,7 +237,7 @@ public class Move_Player : MonoBehaviour
 
                 }
             }
-            
+            }
         }
 
 
@@ -305,12 +301,15 @@ if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
         yield return new WaitForSeconds(5f);
         slamCoolDown = !slamCoolDown;
     }
-    private IEnumerator AttackAnimation()
-    {
-        yield return new WaitForSeconds(.3f);
-        animator.SetBool("IsAttacking", false);
-        animator.SetBool("IsAttacking2", false);
-    }
+    //private IEnumerator AttackAnimation()
+   // {
+   //     yield return new WaitForSeconds(.3f);
+   //     canPunch = !canPunch;
+   //     animator.SetBool("IsAttacking", false);
+  //      animator.SetBool("IsAttacking2", false);
+  //      animator.SetBool("IsAttacking3",false);
+       
+   // }
     private IEnumerator startPunchCoolDown()
     {
         yield return new WaitForSeconds(3f);
@@ -330,5 +329,8 @@ if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
                 animator.SetBool("DoubleJump", false) ;
             }
         }
+    }
+    public void ResetPunch() {
+        canPunch = true;
     }
 }

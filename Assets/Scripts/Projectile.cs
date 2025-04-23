@@ -5,7 +5,23 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private int numOfBounces;
+    private bool isFacingRight = true;
+    Rigidbody2D rb;
 
+
+    void Start() {
+rb = GetComponent<Rigidbody2D>();
+    }
+    void Update() {
+        if (isFacingRight && rb.velocity.x < 0f|| !isFacingRight && rb.velocity.x >0f )
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+           
+        }
+    }
     void OnCollisionEnter2D(Collision2D other)
     {
        
@@ -16,10 +32,10 @@ public class Projectile : MonoBehaviour
                 
                 numOfBounces++;
                 
-                Debug.Log(other.gameObject.name);
+                
                 if (other.gameObject.tag == "Enemy")
                 {
-                    Destroy(other.gameObject);
+                    other.gameObject.GetComponent<EnemyBase>().BaseHit();
                     Destroy(this.gameObject);
                 }
                if ( numOfBounces > 2)
