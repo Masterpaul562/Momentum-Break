@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cba6feb1170d3064987e3e672b1759d0
+guid: f529d3410dee3494e915ce4ac17eaf04
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,64 +123,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slam_0
+      name: Attack-2_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 238
-        width: 106
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 18
+        y: 228
+        width: 126
+        height: 138
+      alignment: 9
+      pivot: {x: 0.65780556, y: 0.48198953}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 601dfb9335c2ca84a9dd30931d3577b1
-      internalID: -1618173098
+      spriteID: 6821a9793cd3deb4589c3ef0658f3387
+      internalID: 123826154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slam_1
+      name: Attack-2_1
       rect:
         serializedVersion: 2
-        x: 244
-        y: 244
-        width: 106
-        height: 112
+        x: 36
+        y: 36
+        width: 114
+        height: 126
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33d13ae5ab0a45643a05b39be17c79d6
-      internalID: 2012404220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Slam_2
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 25
-        width: 106
-        height: 163
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b6773733a87fd94f8ff2f1c00456c32
-      internalID: 2097960623
+      spriteID: 1e8fc8f28bfe7ac4aa86313731b66f2f
+      internalID: -643486804
       vertices: []
       indices: 
       edges: []
@@ -196,9 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Slam_0: -1618173098
-      Slam_1: 2012404220
-      Slam_2: 2097960623
+      Attack-2_0: 123826154
+      Attack-2_1: -643486804
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

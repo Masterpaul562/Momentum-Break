@@ -73,7 +73,7 @@ public class Move_Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isAttacking);
+       
         animator.SetBool("Punched", punched);
        
         if (!isInMove  && armFiringDone && !isAttacking)
@@ -184,6 +184,8 @@ public class Move_Player : MonoBehaviour
             rb.velocity = new Vector2(0, 0);
             arrow.SetActive(true);
             spriteRenderer.color = freezeColor;
+            animator.SetBool("IsJumping",false);
+            animator.SetBool("DoubleJump",false);
                 
             if (Input.GetKey(specailAtkKey) && !IsGrounded())
             {
