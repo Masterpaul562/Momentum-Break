@@ -344,4 +344,5 @@ if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
     public void ResetPunch() {
         canPunch = true;
     }
+    
 }
