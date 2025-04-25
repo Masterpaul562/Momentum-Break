@@ -9,9 +9,18 @@ public Animator animator;
 private bool isFacingRight = true; 
 
 
-
+private void Awake() {
+    health = 6;
+}
     private void Update()
     {
+        if (health<= 0){
+            animator.SetBool("DIE",true);
+            animator.SetBool("shouldHurt",false);
+            if(animator.GetBool("Perishes")){
+               Destroy(this.gameObject);
+            }
+        }
         Debug.DrawRay(transform.position,new Vector2(transform.localScale.x, 0)*1.5f);
         Flip();
         Move();
@@ -50,9 +59,11 @@ private bool isFacingRight = true;
        
     }
    
-    protected override void Hit()
+    protected override void Hit(int damage)
     {
-        Destroy(this.gameObject);
+        health -= damage;
+        animator.SetBool("Hurt",true);
+        animator.SetBool("shouldHurt",false);
     }
     private void Flip() {
         if (isFacingRight && rb.velocity.x < 0f|| !isFacingRight && rb.velocity.x >0f )

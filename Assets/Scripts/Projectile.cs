@@ -35,7 +35,7 @@ rb = GetComponent<Rigidbody2D>();
                 
                 if (other.gameObject.tag == "Enemy")
                 {
-                    other.gameObject.GetComponent<EnemyBase>().BaseHit();
+                    other.gameObject.GetComponent<EnemyBase>().BaseHit(2);
                     Destroy(this.gameObject);
                 }
                if ( numOfBounces > 2)

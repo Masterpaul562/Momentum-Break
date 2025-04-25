@@ -244,7 +244,7 @@ public class Move_Player : MonoBehaviour
                 if (hitResult.collider.tag == "Enemy")
                 {
                     var enemyRef = hitResult.collider.GetComponent<EnemyBase>();
-                    enemyRef.BaseHit();
+                    enemyRef.BaseHit(1);
 
                 }
             }

@@ -15,12 +15,12 @@ public abstract class EnemyBase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
     }
-    public void BaseHit()
+    public void BaseHit(int damage)
     {
-        Hit();
+        Hit(damage);
     }
     
-    protected virtual void Hit()
+    protected virtual void Hit(int damage)
     {
 
     }

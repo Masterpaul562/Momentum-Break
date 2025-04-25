@@ -11,7 +11,7 @@ public class SlamTriggerCollider : MonoBehaviour
         {
             if (other.gameObject.tag == "Enemy")
             {
-                other.GetComponent<EnemyBase>().BaseHit();
+                other.GetComponent<EnemyBase>().BaseHit(2);
             }
         }
     }

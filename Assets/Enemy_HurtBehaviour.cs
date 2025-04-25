@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttackBehaviour : StateMachineBehaviour
+public class Enemy_HurtBehaviour : StateMachineBehaviour
 {
-    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
@@ -20,12 +19,7 @@ public class EnemyAttackBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
-            animator.SetBool("shouldAttack", true);
-            if(animator.GetBool("DIE")==false&&animator.GetBool("Hurt")==false){
-        animator.SetBool("shouldHurt", true);
-            }
-        
+        animator.SetBool("Hurt",false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
@@ -39,5 +33,4 @@ public class EnemyAttackBehaviour : StateMachineBehaviour
     //{
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
-
 }
