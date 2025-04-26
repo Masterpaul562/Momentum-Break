@@ -227,7 +227,7 @@ public class Move_Player : MonoBehaviour
 
 
         //Normal Attack
-        if (Input.GetKeyDown(attackKey) && IsGrounded())
+        if (Input.GetKeyDown(attackKey) && IsGrounded()&&armFiringDone)
         {
             if (canPunch )
             {
@@ -236,7 +236,7 @@ public class Move_Player : MonoBehaviour
             canPunch = false;
             isAttacking = true;
                 animator.SetFloat("Speed", 0);
-           // StartCoroutine(AttackAnimation());
+         
             RaycastHit2D hitResult = Physics2D.BoxCast(boxCastPos,new Vector2 (1,1), 0f, facingDirection, 1f, ~(1<<7)|(1<<6));            
             if (hitResult.collider != null)
             {
@@ -244,7 +244,13 @@ public class Move_Player : MonoBehaviour
                 if (hitResult.collider.tag == "Enemy")
                 {
                     var enemyRef = hitResult.collider.GetComponent<EnemyBase>();
-                    enemyRef.BaseHit(1);
+                        if (animator.GetBool("isThirdAttack"))
+                        {
+                            enemyRef.BaseHit(1, 20, 25);
+                        } else
+                        {
+                            enemyRef.BaseHit(1, 0, 15);
+                        }
 
                 }
             }

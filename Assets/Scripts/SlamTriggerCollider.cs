@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SlamTriggerCollider : MonoBehaviour
 {
+    [SerializeField] private BoxCollider2D Player;
    private void OnTriggerEnter2D(Collider2D other)
     {
        
@@ -11,7 +12,9 @@ public class SlamTriggerCollider : MonoBehaviour
         {
             if (other.gameObject.tag == "Enemy")
             {
-                other.GetComponent<EnemyBase>().BaseHit(2);
+                Player.enabled = false;
+                other.GetComponent<EnemyBase>().BaseHit(2,30,60);
+                Player.enabled = true;
             }
         }
     }

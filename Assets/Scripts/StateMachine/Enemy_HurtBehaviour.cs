@@ -2,39 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Transition1Behaviour : StateMachineBehaviour
+public class Enemy_HurtBehaviour : StateMachineBehaviour
 {
-    private GameObject Player;
-    private bool shouldStopAttacking;
-    private void Awake() {
-        Player = GameObject.FindWithTag("Player");
-    }
-    //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        Player.GetComponent<Move_Player>().canPunch = true;
-        shouldStopAttacking = true;
-       // Player.GetComponent<Move_Player>().isAttacking = true;
-    }
+    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Player.GetComponent<Move_Player>().punched){
-            animator.SetTrigger("Attack2");
-            Player.GetComponent<Move_Player>().ResetPunch();
-            Player.GetComponent<Move_Player>().punched = false;
-            shouldStopAttacking=false;
-        }
+        
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (shouldStopAttacking)
-        {
-            Player.GetComponent<Move_Player>().isAttacking = false;
-        }
+        animator.SetBool("Hurt",false);
+        animator.SetBool("Hurt1", false);
+        animator.SetBool("Hurt2", false);
+        animator.SetBool("isHurting", false);
+        animator.SetBool("shouldHurtTransition", true);
+        animator.SetBool("shouldAttack", true);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
