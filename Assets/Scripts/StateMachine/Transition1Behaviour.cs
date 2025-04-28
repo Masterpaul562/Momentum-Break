@@ -22,10 +22,17 @@ public class Transition1Behaviour : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (Player.GetComponent<Move_Player>().punched){
+            if(Player.GetComponent<Move_Player>().isUpperCut){
+                animator.SetTrigger("UpperCut");
+                Player.GetComponent<Move_Player>().ResetPunch();
+            Player.GetComponent<Move_Player>().punched = false;
+            shouldStopAttacking=false;
+            }else {
             animator.SetTrigger("Attack2");
             Player.GetComponent<Move_Player>().ResetPunch();
             Player.GetComponent<Move_Player>().punched = false;
             shouldStopAttacking=false;
+            }
         }
     }
 

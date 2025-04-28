@@ -32,7 +32,7 @@ public class Move_Player : MonoBehaviour
     public bool canPunch = true;
     public bool punched;
     public bool isAttacking;
-    public bool isUpperCut;
+    public bool isUpperCut = false;
     public bool canUpperCut;
 
     //Special Move Variables
@@ -231,8 +231,12 @@ public class Move_Player : MonoBehaviour
         //Normal Attack
         if (Input.GetKeyDown(attackKey) && IsGrounded()&&armFiringDone)
         {
+            float vert = Input.GetAxisRaw("Vertical");
             if (canPunch)
             {
+                if(vert == 1){
+                    isUpperCut = true;
+                }
                 rb.velocity = new Vector2(0, 0);
                 canPunch = false;
                 punched = true;            
@@ -249,8 +253,11 @@ public class Move_Player : MonoBehaviour
                         if (animator.GetBool("isThirdAttack"))
                         {
                             enemyRef.BaseHit(1, 20, 25);
-                        } else
+                        }  else if (isUpperCut)
                         {
+                             enemyRef.BaseHit(1, 5, 40);
+                            
+                        } else {
                             enemyRef.BaseHit(1, 0, 15);
                         }
 
