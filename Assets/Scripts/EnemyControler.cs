@@ -16,13 +16,16 @@ private void Awake() {
     {
         //Debug.Log(transform.localScale.x);
         if (health<= 0){
+            Debug.Log("IM GOING");
             animator.SetBool("DIE",true);
             animator.SetBool("shouldHurt",false);
+            animator.SetBool("isHurting",false);
             if(animator.GetBool("Perishes")){
                Destroy(this.gameObject);
+               Debug.Log("GONE");
             }
         }
-        Debug.DrawRay(transform.position,new Vector2(transform.localScale.x, 0)*1.5f);
+   
         Flip();
         Move();
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
