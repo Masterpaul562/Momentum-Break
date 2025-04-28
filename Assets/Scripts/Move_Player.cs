@@ -32,6 +32,8 @@ public class Move_Player : MonoBehaviour
     public bool canPunch = true;
     public bool punched;
     public bool isAttacking;
+    public bool isUpperCut;
+    public bool canUpperCut;
 
     //Special Move Variables
     private bool isInMove = false;
@@ -229,13 +231,13 @@ public class Move_Player : MonoBehaviour
         //Normal Attack
         if (Input.GetKeyDown(attackKey) && IsGrounded()&&armFiringDone)
         {
-            if (canPunch )
+            if (canPunch)
             {
                 rb.velocity = new Vector2(0, 0);
-            punched = true;
-            canPunch = false;
-            isAttacking = true;
-                animator.SetFloat("Speed", 0);
+                canPunch = false;
+                punched = true;            
+                isAttacking = true;
+                
          
             RaycastHit2D hitResult = Physics2D.BoxCast(boxCastPos,new Vector2 (1,1), 0f, facingDirection, 1f, ~(1<<7)|(1<<6));            
             if (hitResult.collider != null)
@@ -253,7 +255,7 @@ public class Move_Player : MonoBehaviour
                         }
 
                 }
-            }
+             }
             }
         }
 
