@@ -24,7 +24,8 @@ public class Player_UppercutBehaviour : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Player.GetComponent<Move_Player>().isAttacking = false;
-        Player.GetComponent<Move_Player>().isUpperCut = false;
+       
+        
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

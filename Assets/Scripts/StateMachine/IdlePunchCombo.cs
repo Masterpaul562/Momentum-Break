@@ -20,15 +20,17 @@ public class IdlePunchCombo : StateMachineBehaviour
     {
         if (Player.GetComponent<Move_Player>().punched){
             animator.SetTrigger("Attack1");
+           // Player.GetComponent<Move_Player>().isUpperCut = true;
             Player.GetComponent<Move_Player>().ResetPunch();
             Player.GetComponent<Move_Player>().punched = false;
+            Player.GetComponent<Move_Player>().NormalPunch();
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Player.GetComponent<Move_Player>().isUpperCut = false;
+       // Player.GetComponent<Move_Player>().isUpperCut = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -15,7 +15,7 @@ public class Transition2Behaviour : StateMachineBehaviour
     {
         
         Player.GetComponent<Move_Player>().canPunch = true;
-        // Player.GetComponent<Move_Player>().isAttacking = true;
+        animator.SetBool("UpperCut",false);
         shouldStopAttacking = true;
     }
 
@@ -27,6 +27,7 @@ public class Transition2Behaviour : StateMachineBehaviour
             Player.GetComponent<Move_Player>().ResetPunch();
             Player.GetComponent<Move_Player>().punched = false;
             shouldStopAttacking = false;
+            Player.GetComponent<Move_Player>().NormalPunch();
             
         }
     }

@@ -15,6 +15,9 @@ public class Transition1Behaviour : StateMachineBehaviour
        
         Player.GetComponent<Move_Player>().canPunch = true;
         shouldStopAttacking = true;
+        if(animator.GetBool("UpperCut")== true){
+            animator.SetBool("UpperCut",false);
+        }
        
     }
 
@@ -22,16 +25,21 @@ public class Transition1Behaviour : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (Player.GetComponent<Move_Player>().punched){
-            if(Player.GetComponent<Move_Player>().isUpperCut){
-                animator.SetTrigger("UpperCut");
-                Player.GetComponent<Move_Player>().ResetPunch();
+            float vert = Input.GetAxisRaw("Vertical");
+            if(vert > 0.1){
+            animator.SetTrigger("UpperCut");
+            Player.GetComponent<Move_Player>().ResetPunch();
+            Player.GetComponent<Move_Player>().upperCutDamage = true;
             Player.GetComponent<Move_Player>().punched = false;
             shouldStopAttacking=false;
+            Player.GetComponent<Move_Player>().NormalPunch();
             }else {
             animator.SetTrigger("Attack2");
             Player.GetComponent<Move_Player>().ResetPunch();
             Player.GetComponent<Move_Player>().punched = false;
             shouldStopAttacking=false;
+            Player.GetComponent<Move_Player>().NormalPunch();
+             
             }
         }
     }
@@ -47,6 +55,7 @@ public class Transition1Behaviour : StateMachineBehaviour
         {
             animator.SetBool("isThirdAttack", true);
         }
+       // Player.GetComponent<Move_Player>().canUpperCut = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

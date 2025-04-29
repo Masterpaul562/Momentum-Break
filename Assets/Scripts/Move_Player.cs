@@ -32,8 +32,7 @@ public class Move_Player : MonoBehaviour
     public bool canPunch = true;
     public bool punched;
     public bool isAttacking;
-    public bool isUpperCut = false;
-    public bool canUpperCut;
+    public bool upperCutDamage;
 
     //Special Move Variables
     private bool isInMove = false;
@@ -234,35 +233,14 @@ public class Move_Player : MonoBehaviour
             float vert = Input.GetAxisRaw("Vertical");
             if (canPunch)
             {
-                if(vert == 1){
-                    isUpperCut = true;
-                }
+                
                 rb.velocity = new Vector2(0, 0);
                 canPunch = false;
                 punched = true;            
                 isAttacking = true;
                 
          
-            RaycastHit2D hitResult = Physics2D.BoxCast(boxCastPos,new Vector2 (1,1), 0f, facingDirection, 1f, ~(1<<7)|(1<<6));            
-            if (hitResult.collider != null)
-            {
-                
-                if (hitResult.collider.tag == "Enemy")
-                {
-                    var enemyRef = hitResult.collider.GetComponent<EnemyBase>();
-                        if (animator.GetBool("isThirdAttack"))
-                        {
-                            enemyRef.BaseHit(1, 20, 25);
-                        }  else if (isUpperCut)
-                        {
-                             enemyRef.BaseHit(1, 5, 40);
-                            
-                        } else {
-                            enemyRef.BaseHit(1, 0, 15);
-                        }
-
-                }
-             }
+            
             }
         }
 
@@ -358,6 +336,31 @@ if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
     }
     public void ResetPunch() {
         canPunch = true;
+    }
+    public void NormalPunch() {
+        Vector2 facingDirection = new Vector2(transform.localScale.x, 0);
+        Vector2 boxCastPos = new Vector2(transform.position.x, transform.position.y-0.3f);
+        RaycastHit2D hitResult = Physics2D.BoxCast(boxCastPos,new Vector2 (1,1), 0f, facingDirection, 1f, ~(1<<7)|(1<<6));            
+            if (hitResult.collider != null)
+            {
+                
+                if (hitResult.collider.tag == "Enemy")
+                {
+                    var enemyRef = hitResult.collider.GetComponent<EnemyBase>();
+                        if (animator.GetBool("isThirdAttack"))
+                        {
+                            enemyRef.BaseHit(1, 20, 25);
+                        }  else if (upperCutDamage)
+                        {
+                             enemyRef.BaseHit(1, 5, 40);
+                             upperCutDamage = !upperCutDamage;
+                            
+                        } else {
+                            enemyRef.BaseHit(1, 0, 15);
+                        }
+
+                }
+             }
     }
     
 }
