@@ -33,6 +33,9 @@ public class Move_Player : MonoBehaviour
     public bool punched;
     public bool isAttacking;
     public bool upperCutDamage;
+    // Air Attacks
+    public bool airPunched;
+    public bool canAirPunch = true;
 
     //Special Move Variables
     private bool isInMove = false;
@@ -93,7 +96,8 @@ public class Move_Player : MonoBehaviour
        
         
             animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-        
+        animator.SetFloat("VertSpeed", rb.velocity.y);
+
     }
     void FixedUpdate()
     {
@@ -243,7 +247,12 @@ public class Move_Player : MonoBehaviour
         }
         if (Input.GetKeyDown(attackKey) && !IsGrounded() && !isInMove)
         {
-            
+            float vert = Input.GetAxisRaw("Vertical");
+            if (canAirPunch)
+            {
+                canAirPunch = false;
+                airPunched = true;
+            }
         }
 
 
