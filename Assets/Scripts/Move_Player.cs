@@ -20,11 +20,11 @@ public class Move_Player : MonoBehaviour
     public KeyCode specailAtkKey = KeyCode.C;
 
     //Movement Variables
-    [SerializeField] private float jumpPower;
+    [SerializeField] public float jumpPower;
     [SerializeField] private float moveSpeed;
     [SerializeField] private Transform groundCheck;
     private bool isFacingRight = true;
-    private bool doubleJumped;
+    public bool doubleJumped;
     public LayerMask whatIsGround;
     Rigidbody2D rb;
 
@@ -77,7 +77,10 @@ public class Move_Player : MonoBehaviour
 
     void Update()
     {
-       
+       if(IsGrounded()){
+        animator.SetBool("InAirAttack",false) ;
+        jumpPower = 35;
+       }
         animator.SetBool("Punched", punched);
        
         if (!isInMove  && armFiringDone && !isAttacking)
@@ -247,9 +250,11 @@ public class Move_Player : MonoBehaviour
         }
         if (Input.GetKeyDown(attackKey) && !IsGrounded() && !isInMove)
         {
+            
             float vert = Input.GetAxisRaw("Vertical");
             if (canAirPunch)
             {
+                
                 canAirPunch = false;
                 airPunched = true;
             }
@@ -266,6 +271,7 @@ if (Input.GetKeyDown(jumpKey) && !isInMove && !isAttacking)
 {
     if (IsGrounded() || doubleJumped)
     {
+        canAirPunch = true;
         if(doubleJumped)
                 {
                     animator.SetBool("DoubleJump", true);
@@ -273,6 +279,7 @@ if (Input.GetKeyDown(jumpKey) && !isInMove && !isAttacking)
         else { animator.SetBool("IsJumping", true); }
         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         doubleJumped = !doubleJumped;
+        jumpPower = 35;
     }
 }
 if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
@@ -350,6 +357,10 @@ if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
                 if (hitResult.collider.tag == "Enemy")
                 {
                     var enemyRef = hitResult.collider.GetComponent<EnemyBase>();
+                    if(!IsGrounded()){
+                        doubleJumped = true;
+                        jumpPower = 60;
+                    }
                        enemyRef.BaseHit(1,horizontalForce,VerticalForce);
                 }
              }

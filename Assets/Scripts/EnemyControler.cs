@@ -27,6 +27,7 @@ private void Awake() {
                
             }
         }
+        animator.SetBool("IsGrounded",IsGrounded());
         if (IsGrounded())
         {
             rb.gravityScale = 7;
@@ -53,8 +54,11 @@ private void Awake() {
             animator.SetBool("shouldHurt", false);
             // rb.constraints = ~RigidbodyConstraints2D.FreezePositionX;
             if (animator.GetBool("isHurting") == false)
-            {
+            { if(IsGrounded()){
+
+            
                 rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
+            }
             }
          }else {
             if(Physics2D.Raycast(this.transform.position,new Vector2 (this.transform.localScale.x,0), 1.5f, hitPlayer)&&animator.GetBool("shouldAttack") ==true && animator.GetBool("isHurting" )== false)
