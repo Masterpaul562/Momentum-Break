@@ -241,6 +241,10 @@ public class Move_Player : MonoBehaviour
             
             }
         }
+        if (Input.GetKeyDown(attackKey) && !IsGrounded() && !isInMove)
+        {
+            
+        }
 
 
         //Jumping
