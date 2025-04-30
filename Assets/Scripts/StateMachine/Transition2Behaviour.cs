@@ -27,7 +27,7 @@ public class Transition2Behaviour : StateMachineBehaviour
             Player.GetComponent<Move_Player>().ResetPunch();
             Player.GetComponent<Move_Player>().punched = false;
             shouldStopAttacking = false;
-            Player.GetComponent<Move_Player>().NormalPunch();
+            Player.GetComponent<Move_Player>().NormalPunch(20,15);
             
         }
     }

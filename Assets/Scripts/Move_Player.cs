@@ -237,9 +237,7 @@ public class Move_Player : MonoBehaviour
                 rb.velocity = new Vector2(0, 0);
                 canPunch = false;
                 punched = true;            
-                isAttacking = true;
-                
-         
+                isAttacking = true;     
             
             }
         }
@@ -305,15 +303,7 @@ if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
         yield return new WaitForSeconds(5f);
         slamCoolDown = !slamCoolDown;
     }
-    //private IEnumerator AttackAnimation()
-   // {
-   //     yield return new WaitForSeconds(.3f);
-   //     canPunch = !canPunch;
-   //     animator.SetBool("IsAttacking", false);
-  //      animator.SetBool("IsAttacking2", false);
-  //      animator.SetBool("IsAttacking3",false);
-       
-   // }
+   
     private IEnumerator startPunchCoolDown()
     {
         yield return new WaitForSeconds(3f);
@@ -337,7 +327,7 @@ if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
     public void ResetPunch() {
         canPunch = true;
     }
-    public void NormalPunch() {
+    public void NormalPunch(int horizontalForce,int VerticalForce) {
         Vector2 facingDirection = new Vector2(transform.localScale.x, 0);
         Vector2 boxCastPos = new Vector2(transform.position.x, transform.position.y-0.3f);
         RaycastHit2D hitResult = Physics2D.BoxCast(boxCastPos,new Vector2 (1,1), 0f, facingDirection, 1f, ~(1<<7)|(1<<6));            
@@ -347,18 +337,7 @@ if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
                 if (hitResult.collider.tag == "Enemy")
                 {
                     var enemyRef = hitResult.collider.GetComponent<EnemyBase>();
-                        if (animator.GetBool("isThirdAttack"))
-                        {
-                            enemyRef.BaseHit(1, 20, 25);
-                        }  else if (upperCutDamage)
-                        {
-                             enemyRef.BaseHit(1, 5, 40);
-                             upperCutDamage = !upperCutDamage;
-                            
-                        } else {
-                            enemyRef.BaseHit(1, 0, 15);
-                        }
-
+                       enemyRef.BaseHit(1,horizontalForce,VerticalForce);
                 }
              }
     }

@@ -13,6 +13,7 @@ public class IdlePunchCombo : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool("isThirdAttack", false);
+        animator.SetBool("UpperCut", false);
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -23,7 +24,7 @@ public class IdlePunchCombo : StateMachineBehaviour
            // Player.GetComponent<Move_Player>().isUpperCut = true;
             Player.GetComponent<Move_Player>().ResetPunch();
             Player.GetComponent<Move_Player>().punched = false;
-            Player.GetComponent<Move_Player>().NormalPunch();
+            Player.GetComponent<Move_Player>().NormalPunch(0,15);
         }
     }
 

@@ -6,6 +6,8 @@ public class EnemyControler : EnemyBase
 {
 public LayerMask hitPlayer;
 public Animator animator;
+[SerializeField] private Transform groundCheck;
+[SerializeField] private LayerMask whatIsGround;
 private bool isFacingRight = true;
     
 
@@ -25,7 +27,15 @@ private void Awake() {
                
             }
         }
-   
+        if (IsGrounded())
+        {
+            rb.gravityScale = 7;
+            rb.drag = 5;
+        }else
+        {
+            rb.gravityScale = 5;
+            rb.drag = 7;
+        }
         Flip();
         Move();
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
@@ -111,5 +121,9 @@ private void Awake() {
             transform.localScale = localScale;
            
         }
+    }
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapBox(groundCheck.position, new Vector2(1, 0.5f), 0, whatIsGround);
     }
 }

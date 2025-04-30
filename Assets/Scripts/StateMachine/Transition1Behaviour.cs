@@ -29,16 +29,16 @@ public class Transition1Behaviour : StateMachineBehaviour
             if(vert > 0.1){
             animator.SetTrigger("UpperCut");
             Player.GetComponent<Move_Player>().ResetPunch();
-            Player.GetComponent<Move_Player>().upperCutDamage = true;
+           // Player.GetComponent<Move_Player>().upperCutDamage = true;
             Player.GetComponent<Move_Player>().punched = false;
             shouldStopAttacking=false;
-            Player.GetComponent<Move_Player>().NormalPunch();
+            Player.GetComponent<Move_Player>().NormalPunch(5,60);
             }else {
             animator.SetTrigger("Attack2");
             Player.GetComponent<Move_Player>().ResetPunch();
             Player.GetComponent<Move_Player>().punched = false;
             shouldStopAttacking=false;
-            Player.GetComponent<Move_Player>().NormalPunch();
+            Player.GetComponent<Move_Player>().NormalPunch(0,15);
              
             }
         }
