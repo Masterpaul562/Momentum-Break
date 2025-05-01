@@ -80,6 +80,7 @@ public class Move_Player : MonoBehaviour
        if(IsGrounded()){
         animator.SetBool("InAirAttack",false) ;
         jumpPower = 35;
+        //animator.SetBool("IsJumping",false);
        }
         animator.SetBool("Punched", punched);
        

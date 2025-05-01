@@ -432,7 +432,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 83a4453109acf494ebc2217cfe5ccdd3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -453,8 +453,8 @@ Transform:
   m_GameObject: {fileID: 502344545}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: -0.4, z: 0.77812934}
-  m_LocalScale: {x: -27.493786, y: 31.58198, z: 1}
+  m_LocalPosition: {x: -1.04, y: -1.62, z: 0.77812934}
+  m_LocalScale: {x: 1.94, y: 2.1963105, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1134438906}
@@ -518,9 +518,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 72.78314
   orthographic: 1
-  orthographic size: 20.573095
+  orthographic size: 8.391655
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -545,7 +545,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -0.3, y: -1.69, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -751,7 +751,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f87ae6a5d99583e43a1e0fb6dedc670d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -772,7 +772,7 @@ Transform:
   m_GameObject: {fileID: 669721901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.8545, y: 18.91, z: 0}
+  m_LocalPosition: {x: -8.8545, y: -2.8, z: 0}
   m_LocalScale: {x: 1.89, y: 2.092, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -876,6 +876,7 @@ MonoBehaviour:
   jumpPower: 35
   moveSpeed: 10
   groundCheck: {fileID: 2065900401}
+  doubleJumped: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
@@ -986,18 +987,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.02, y: -1.62}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 6.96, y: 6.96}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.86, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &792471296
 SpriteRenderer:
@@ -1039,9 +1040,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.34850276, g: 0.37370196, b: 0.42138356, a: 1}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 48f8007e5bb66b745b6a136f22c8eaa4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1060,8 +1061,8 @@ Transform:
   m_GameObject: {fileID: 792471294}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.13, y: -6.09, z: 0}
-  m_LocalScale: {x: 25.92, y: 2.12, z: 1}
+  m_LocalPosition: {x: -0.23, y: -1.8474, z: 0}
+  m_LocalScale: {x: 7.747337, y: 4.3597713, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1699,6 +1700,10 @@ PrefabInstance:
     - target: {fileID: 3331655727498424968, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717490434665013629, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5373297951464293264, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: player

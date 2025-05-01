@@ -19,12 +19,17 @@ public class Player_AirAttackBehaviour : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (Player.GetComponent<Move_Player>().airPunched){
+            float vert = Input.GetAxisRaw("Vertical");
+            
            Player.GetComponent<Move_Player>().airPunched=false;
            animator.SetTrigger("AirAttack");
            animator.SetBool("InAirAttack",true);
+           if(vert>0.01f){
            Player.GetComponent<Move_Player>().NormalPunch(5,40);
-           //Player.GetComponent<Move_Player>().doubleJumped=true;
-           //Player.GetComponent<Move_Player>().jumpPower = 60;
+            } else {
+                 Player.GetComponent<Move_Player>().NormalPunch(5,-100);
+            }
+           
         }
     }
 
