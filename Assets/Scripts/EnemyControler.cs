@@ -12,7 +12,7 @@ private bool isFacingRight = true;
     
 
 private void Awake() {
-    health = 6;
+    health = 100;
 }
     private void Update()
     {
