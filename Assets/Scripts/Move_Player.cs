@@ -214,9 +214,12 @@ public class Move_Player : MonoBehaviour
                     if (arrow.transform.rotation.z > 0)
                     {
                         transform.position = new Vector3(endSlamPos.point.x-1, endSlamPos.point.y + 1, 0);
-                    } else
+                    } else if (arrow.transform.rotation.z < 0)
                     {
                         transform.position = new Vector3(endSlamPos.point.x + 1, endSlamPos.point.y + 1, 0);
+                    }
+                    else {
+                        transform.position = new Vector3(endSlamPos.point.x , endSlamPos.point.y+1, 0);
                     }
                     Debug.Log(endSlamPos.point);
                 StartCoroutine(HitBoxDer());
