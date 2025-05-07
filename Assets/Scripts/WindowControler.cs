@@ -14,8 +14,8 @@ public class WindowControler : MonoBehaviour
 Destroy(this.gameObject);
         }
     }
-    void onCollisionEnter2D(Collision other) {
-        Debug.Log("YAY");
+    void OnTriggerEnter2D(Collider2D other) {
+       
         if(other.gameObject.tag == "Projectile"){
 animator.SetTrigger("Break");
         }
