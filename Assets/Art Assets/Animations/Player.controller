@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player_UpperCut
-  m_Speed: 1.6
+  m_Speed: 1.2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8828506473989070789}
@@ -67,7 +67,7 @@ AnimatorStateMachine:
     m_Position: {x: -270, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5553649874410913614}
-    m_Position: {x: -150, y: 40, z: 0}
+    m_Position: {x: -140, y: 20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7880260144419183490}
     m_Position: {x: 170, y: -100, z: 0}
@@ -106,10 +106,10 @@ AnimatorStateMachine:
     m_Position: {x: 770, y: -160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6481110755101726430}
-    m_Position: {x: -840, y: -90, z: 0}
+    m_Position: {x: -850, y: -90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1067814955284578590}
-    m_Position: {x: -550, y: -120, z: 0}
+    m_Position: {x: -570, y: -120, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -3730264722103075178}
@@ -1274,7 +1274,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player_AirAttackUp
-  m_Speed: 0.1
+  m_Speed: 0.3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5870359424213924945}

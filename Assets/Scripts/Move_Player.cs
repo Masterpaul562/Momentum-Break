@@ -283,6 +283,7 @@ if (Input.GetKeyDown(jumpKey) && !isInMove && !isAttacking)
     if (IsGrounded() || doubleJumped)
     {
         canAirPunch = true;
+                animator.SetBool("InAirAttack", false);
         if(doubleJumped)
                 {
                     animator.SetBool("DoubleJump", true);
