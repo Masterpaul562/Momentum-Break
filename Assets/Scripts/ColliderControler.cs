@@ -5,13 +5,15 @@ using UnityEngine;
 public class ColliderControler : MonoBehaviour
 {
     public Animator animator; 
+    public GameObject wall;
 
 void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Projectile")
         {
-            Debug.Log("YAY");
+            
             animator.SetTrigger("Press");
+            Destroy(wall);
         }
     }
 }
