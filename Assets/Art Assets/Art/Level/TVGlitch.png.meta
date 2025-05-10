@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 16c1e96edde1e1149802cd1a9fbf4cb5
+guid: c0833077b3707fb4d857910706b27322
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -81,19 +81,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -123,85 +110,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EnemyRun_1_0
+      name: TVGlitch_0
       rect:
         serializedVersion: 2
-        x: 66
-        y: 228
-        width: 72
-        height: 120
-      alignment: 9
-      pivot: {x: 0.5, y: 0.54877144}
+        x: 22
+        y: 2602
+        width: 1157
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0408db3a60e7f634abf629ea16db99e1
-      internalID: -594874427
+      spriteID: c95c6a5f01bcab244997cf629f9cdc4f
+      internalID: -1465926783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemyRun_1_1
+      name: TVGlitch_1
       rect:
         serializedVersion: 2
-        x: 258
-        y: 228
-        width: 72
-        height: 126
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5487714}
+        x: 1221
+        y: 2602
+        width: 1157
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3b8db042343f97438aa1e4ce17cc57a
-      internalID: 187928319
+      spriteID: 9335681f1f8338f4faf74f1ee305ca31
+      internalID: 1805948305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemyRun_1_2
+      name: TVGlitch_2
       rect:
         serializedVersion: 2
-        x: 54
-        y: 36
-        width: 96
-        height: 120
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5487714}
+        x: 22
+        y: 1402
+        width: 1157
+        height: 761
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d30b6889c7ce4bc458b86a053c678ea3
-      internalID: -2090571113
+      spriteID: ef28d9be1b83e1044b615142daf7809a
+      internalID: 768579070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemyRun_1_3
+      name: TVGlitch_3
       rect:
         serializedVersion: 2
-        x: 258
-        y: 36
-        width: 72
-        height: 126
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5487714}
+        x: 1221
+        y: 1402
+        width: 1157
+        height: 761
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1679811e8f66e084085df495769ff124
-      internalID: 85578426
+      spriteID: d5bedf0497328934f9a2cb34ed3c68fe
+      internalID: 822999309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TVGlitch_4
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 201
+        width: 1157
+        height: 761
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62fa6f4295fb3dd46908cd203f22096b
+      internalID: 477053898
       vertices: []
       indices: 
       edges: []
@@ -217,10 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      EnemyRun_1_0: -594874427
-      EnemyRun_1_1: 187928319
-      EnemyRun_1_2: -2090571113
-      EnemyRun_1_3: 85578426
+      TVGlitch_0: -1465926783
+      TVGlitch_1: 1805948305
+      TVGlitch_2: 768579070
+      TVGlitch_3: 822999309
+      TVGlitch_4: 477053898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
