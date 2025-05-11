@@ -12,6 +12,9 @@ public class IdlePunchCombo : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Player.GetComponent<Move_Player>().UpAirCollider.enabled = false;
+        animator.SetBool("InAirAttack", false);
+        Player.GetComponent<Move_Player>().punchCollider.enabled = false;
         animator.SetBool("isThirdAttack", false);
         animator.SetBool("UpperCut", false);
     }
@@ -24,7 +27,9 @@ public class IdlePunchCombo : StateMachineBehaviour
            // Player.GetComponent<Move_Player>().isUpperCut = true;
             Player.GetComponent<Move_Player>().ResetPunch();
             Player.GetComponent<Move_Player>().punched = false;
-            Player.GetComponent<Move_Player>().NormalPunch(0,15);
+            Player.GetComponent<Move_Player>().knockbackX = 0;
+            Player.GetComponent<Move_Player>().knockbackY = 15;
+            Player.GetComponent<Move_Player>().punchCollider.enabled = true;
         }
     }
 

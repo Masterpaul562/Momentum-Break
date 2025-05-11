@@ -33,7 +33,12 @@ public class Move_Player : MonoBehaviour
     public bool punched;
     public bool isAttacking;
     public bool upperCutDamage;
+    public Collider2D UppercutCollider;
+    public int knockbackX;
+    public int knockbackY;
+    public Collider2D punchCollider;
     // Air Attacks
+    public Collider2D UpAirCollider;
     public bool airPunched;
     public bool canAirPunch = true;
 
@@ -221,7 +226,7 @@ public class Move_Player : MonoBehaviour
                     else {
                         transform.position = new Vector3(endSlamPos.point.x , endSlamPos.point.y+1, 0);
                     }
-                    Debug.Log(endSlamPos.point);
+                   
                 StartCoroutine(HitBoxDer());
                 arrow.SetActive(false);
                 trackRot = 0;
@@ -359,23 +364,6 @@ if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
     public void ResetPunch() {
         canPunch = true;
     }
-    public void NormalPunch(int horizontalForce,int VerticalForce) {
-        Vector2 facingDirection = new Vector2(transform.localScale.x, 0);
-        Vector2 boxCastPos = new Vector2(transform.position.x, transform.position.y-0.3f);
-        RaycastHit2D hitResult = Physics2D.BoxCast(boxCastPos,new Vector2 (1,1), 0f, facingDirection, 1f, ~(1<<7)|(1<<6));            
-            if (hitResult.collider != null)
-            {
-                
-                if (hitResult.collider.tag == "Enemy")
-                {
-                    var enemyRef = hitResult.collider.GetComponent<EnemyBase>();
-                    if(!IsGrounded()){
-                        doubleJumped = true;
-                        jumpPower = 60;
-                    }
-                       enemyRef.BaseHit(1,horizontalForce,VerticalForce);
-                }
-             }
-    }
+   
     
 }

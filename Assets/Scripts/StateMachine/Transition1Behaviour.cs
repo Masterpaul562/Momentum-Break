@@ -14,6 +14,7 @@ public class Transition1Behaviour : StateMachineBehaviour
     {
        
         Player.GetComponent<Move_Player>().canPunch = true;
+        Player.GetComponent<Move_Player>().punchCollider.enabled = false;
         shouldStopAttacking = true;
         if(animator.GetBool("UpperCut")== true){
             animator.SetBool("UpperCut",false);
@@ -29,17 +30,24 @@ public class Transition1Behaviour : StateMachineBehaviour
             if(vert > 0.1){
             animator.SetTrigger("UpperCut");
             Player.GetComponent<Move_Player>().ResetPunch();
-           // Player.GetComponent<Move_Player>().upperCutDamage = true;
+            Player.GetComponent<Move_Player>().upperCutDamage = true;
             Player.GetComponent<Move_Player>().punched = false;
             shouldStopAttacking=false;
-            Player.GetComponent<Move_Player>().NormalPunch(5,60);
-            }else {
+                Player.GetComponent<Move_Player>().knockbackX = 5;
+                Player.GetComponent<Move_Player>().knockbackY = 60;
+                //Remove Later
+                Player.GetComponent<Move_Player>().UppercutCollider.enabled = true;
+               
+            } else {
             animator.SetTrigger("Attack2");
             Player.GetComponent<Move_Player>().ResetPunch();
             Player.GetComponent<Move_Player>().punched = false;
             shouldStopAttacking=false;
-            Player.GetComponent<Move_Player>().NormalPunch(0,15);
-             
+                Player.GetComponent<Move_Player>().knockbackX = 0;
+                Player.GetComponent<Move_Player>().knockbackY = 15;
+                Player.GetComponent<Move_Player>().punchCollider.enabled = true;
+                //0,15
+
             }
         }
     }
@@ -51,6 +59,8 @@ public class Transition1Behaviour : StateMachineBehaviour
         {
             Player.GetComponent<Move_Player>().isAttacking = false;
             animator.SetBool("isThirdAttack", false);
+            Player.GetComponent<Move_Player>().punchCollider.enabled = false;
+            Player.GetComponent<Move_Player>().UppercutCollider.enabled = false;
         } else
         {
             animator.SetBool("isThirdAttack", true);

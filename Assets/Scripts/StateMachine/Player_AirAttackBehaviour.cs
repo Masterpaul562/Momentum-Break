@@ -12,7 +12,8 @@ public class Player_AirAttackBehaviour : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       animator.SetBool("InAirAttack",false); 
+        Player.GetComponent<Move_Player>().UpAirCollider.enabled = false;
+        animator.SetBool("InAirAttack",false); 
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -25,9 +26,10 @@ public class Player_AirAttackBehaviour : StateMachineBehaviour
            animator.SetTrigger("AirAttack");
            animator.SetBool("InAirAttack",true);
            if(vert>0.01f){
-           Player.GetComponent<Move_Player>().NormalPunch(5,40);
+                // Player.GetComponent<Move_Player>().NormalPunch(5,40);
+                Player.GetComponent<Move_Player>().UpAirCollider.enabled = true;
             } else {
-                 Player.GetComponent<Move_Player>().NormalPunch(5,-100);
+                 //Player.GetComponent<Move_Player>().NormalPunch(5,-100);
             }
            
         }
@@ -36,8 +38,8 @@ public class Player_AirAttackBehaviour : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //Player.GetComponent<Move_Player>().canAirPunch = true;
-        
+        //Player.GetComponent<Move_Player>().UpAirCollider.enabled = false;
+
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

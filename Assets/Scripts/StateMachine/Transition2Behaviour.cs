@@ -13,7 +13,7 @@ public class Transition2Behaviour : StateMachineBehaviour
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        Player.GetComponent<Move_Player>().punchCollider.enabled = false;
         Player.GetComponent<Move_Player>().canPunch = true;
         animator.SetBool("UpperCut",false);
         shouldStopAttacking = true;
@@ -27,8 +27,11 @@ public class Transition2Behaviour : StateMachineBehaviour
             Player.GetComponent<Move_Player>().ResetPunch();
             Player.GetComponent<Move_Player>().punched = false;
             shouldStopAttacking = false;
-            Player.GetComponent<Move_Player>().NormalPunch(20,15);
-            
+            Player.GetComponent<Move_Player>().knockbackX = 20;
+            Player.GetComponent<Move_Player>().knockbackY = 15;
+            Player.GetComponent<Move_Player>().punchCollider.enabled = true;
+            // Player.GetComponent<Move_Player>().NormalPunch(20,15);
+
         }
     }
 
