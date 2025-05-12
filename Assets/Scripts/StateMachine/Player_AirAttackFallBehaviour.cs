@@ -14,6 +14,7 @@ public class Player_AirAttackFallBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player.GetComponent<Move_Player>().InAirFall = true;
+        animator.SetBool("InAirAttack",false);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

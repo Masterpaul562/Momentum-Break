@@ -14,6 +14,8 @@ public class Player_AirAttackBehaviour : StateMachineBehaviour
     {
         Player.GetComponent<Move_Player>().UpAirCollider.enabled = false;
         animator.SetBool("InAirAttack",false); 
+        animator.SetBool("IsJumping",false); 
+        //animator.SetBool("DoubleJump",false); 
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

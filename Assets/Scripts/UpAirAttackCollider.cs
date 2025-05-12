@@ -8,12 +8,13 @@ public class UpAirAttackCollider : MonoBehaviour
     void OnTriggerEnter2D (Collider2D other) { 
     if(other.gameObject.tag == "Enemy")
         {
-            player.GetComponent<Move_Player>().doubleJumped = true;
+          //  player.GetComponent<Move_Player>().doubleJumped = true;
+          if(other.gameObject.GetComponent<EnemyControler>().IsGrounded()==false){
             player.GetComponent<Move_Player>().shouldAirDouble = true;
             player.GetComponent<Move_Player>().jumpPower = 45;
             other.gameObject.GetComponent<EnemyControler>().BaseHit(1, 2, 40);
-
             player.GetComponent<Move_Player>().UpAirCollider.enabled = false;
+          }
         }
     }
 }

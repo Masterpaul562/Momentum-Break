@@ -6024,7 +6024,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1.2, y: 1.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -6039,7 +6039,7 @@ Transform:
   m_GameObject: {fileID: 669721901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.17, y: -3.85, z: 0}
+  m_LocalPosition: {x: 47.92, y: 7.87, z: 0}
   m_LocalScale: {x: 1.89, y: 2.092, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6116,7 +6116,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.495685, y: 0.51}
     oldSize: {x: 2, y: 2}
-    newSize: {x: 2, y: 2}
+    newSize: {x: 1.2, y: 1.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -6159,6 +6159,7 @@ MonoBehaviour:
   knockbackY: 0
   punchCollider: {fileID: 927349227}
   InAirFall: 0
+  shouldAirDouble: 0
   UpAirCollider: {fileID: 2096475914}
   airPunched: 0
   canAirPunch: 1
@@ -19368,7 +19369,7 @@ Transform:
   m_GameObject: {fileID: 2096475912}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.171, y: 0.561, z: 0}
+  m_LocalPosition: {x: 0.2, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19417,7 +19418,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.94, y: 0.57}
+  m_Size: {x: 1.61, y: 0.38}
   m_EdgeRadius: 0
 --- !u!114 &2096475915
 MonoBehaviour:
@@ -19450,7 +19451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331655727498424968, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: m_Constraints
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5373297951464293264, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: player
@@ -19458,11 +19459,11 @@ PrefabInstance:
       objectReference: {fileID: 669721901}
     - target: {fileID: 7882503286543536801, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 57.44
+      value: 57.11
       objectReference: {fileID: 0}
     - target: {fileID: 7882503286543536801, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.33
+      value: -3.84
       objectReference: {fileID: 0}
     - target: {fileID: 7882503286543536801, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: m_LocalPosition.z

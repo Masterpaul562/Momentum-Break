@@ -87,6 +87,7 @@ public class Move_Player : MonoBehaviour
         animator.SetBool("AirFall", InAirFall);
         
         if (IsGrounded()){
+            shouldAirDouble = false;
         animator.SetBool("InAirAttack",false) ;
             animator.SetBool("AirFall", false);
             jumpPower = 35;
@@ -290,19 +291,18 @@ public class Move_Player : MonoBehaviour
 
 if (Input.GetKeyDown(jumpKey) && !isInMove && !isAttacking)
 {
-    if (IsGrounded() || doubleJumped)
+    if (IsGrounded() || doubleJumped|| shouldAirDouble)
     {
         canAirPunch = true;
                 
                 animator.SetBool("InAirAttack", false);
-                if (InAirFall||shouldAirDouble)
+                if (shouldAirDouble)
                 {
                     shouldAirDouble = false;
                     InAirFall = false;
-                    animator.SetTrigger("AirDouble");
+                    animator.SetBool("AirDouble",true);
                 }
-                else
-        if(doubleJumped)
+                else if(doubleJumped)
                 {
                     animator.SetBool("DoubleJump", true);
                 }
@@ -371,6 +371,7 @@ if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
             {
                 animator.SetBool("IsJumping", false);
                 animator.SetBool("DoubleJump", false) ;
+                 animator.SetBool("AirDouble", false) ;
             }
         }
     }
@@ -389,5 +390,11 @@ if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
     {
         punchCollider.enabled = false;
     }
-   
+   public void ResetAirDouble() {
+    animator.SetBool("AirDouble",false);
+   }
+
+  public void ResetDouble() {
+     animator.SetBool("DoubleJump",false);
+   }
 }

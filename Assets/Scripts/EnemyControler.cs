@@ -126,7 +126,7 @@ private void Awake() {
            
         }
     }
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics2D.OverlapBox(groundCheck.position, new Vector2(1, 0.5f), 0, whatIsGround);
     }
