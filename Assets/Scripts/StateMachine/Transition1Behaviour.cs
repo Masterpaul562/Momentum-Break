@@ -36,7 +36,7 @@ public class Transition1Behaviour : StateMachineBehaviour
                 Player.GetComponent<Move_Player>().knockbackX = 5;
                 Player.GetComponent<Move_Player>().knockbackY = 60;
                 //Remove Later
-                Player.GetComponent<Move_Player>().UppercutCollider.enabled = true;
+               // Player.GetComponent<Move_Player>().UppercutCollider.enabled = true;
                
             } else {
             animator.SetTrigger("Attack2");
@@ -60,7 +60,7 @@ public class Transition1Behaviour : StateMachineBehaviour
             Player.GetComponent<Move_Player>().isAttacking = false;
             animator.SetBool("isThirdAttack", false);
             Player.GetComponent<Move_Player>().punchCollider.enabled = false;
-            Player.GetComponent<Move_Player>().UppercutCollider.enabled = false;
+           // Player.GetComponent<Move_Player>().UppercutCollider.enabled = false;
         } else
         {
             animator.SetBool("isThirdAttack", true);

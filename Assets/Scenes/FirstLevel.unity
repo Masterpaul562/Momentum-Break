@@ -6158,6 +6158,7 @@ MonoBehaviour:
   knockbackX: 0
   knockbackY: 0
   punchCollider: {fileID: 927349227}
+  InAirFall: 0
   UpAirCollider: {fileID: 2096475914}
   airPunched: 0
   canAirPunch: 1
@@ -19449,7 +19450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331655727498424968, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5373297951464293264, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: player
@@ -19457,11 +19458,11 @@ PrefabInstance:
       objectReference: {fileID: 669721901}
     - target: {fileID: 7882503286543536801, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 57.6
+      value: 57.44
       objectReference: {fileID: 0}
     - target: {fileID: 7882503286543536801, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.02
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 7882503286543536801, guid: 2b65f2a5d126c2942bc83a494b273a3f, type: 3}
       propertyPath: m_LocalPosition.z

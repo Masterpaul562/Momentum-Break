@@ -38,6 +38,8 @@ public class Move_Player : MonoBehaviour
     public int knockbackY;
     public Collider2D punchCollider;
     // Air Attacks
+    public bool InAirFall;
+    public bool shouldAirDouble;
     public Collider2D UpAirCollider;
     public bool airPunched;
     public bool canAirPunch = true;
@@ -82,9 +84,12 @@ public class Move_Player : MonoBehaviour
 
     void Update()
     {
-       if(IsGrounded()){
+        animator.SetBool("AirFall", InAirFall);
+        
+        if (IsGrounded()){
         animator.SetBool("InAirAttack",false) ;
-        jumpPower = 35;
+            animator.SetBool("AirFall", false);
+            jumpPower = 35;
         //animator.SetBool("IsJumping",false);
        }
         animator.SetBool("Punched", punched);
@@ -288,7 +293,15 @@ if (Input.GetKeyDown(jumpKey) && !isInMove && !isAttacking)
     if (IsGrounded() || doubleJumped)
     {
         canAirPunch = true;
+                
                 animator.SetBool("InAirAttack", false);
+                if (InAirFall||shouldAirDouble)
+                {
+                    shouldAirDouble = false;
+                    InAirFall = false;
+                    animator.SetTrigger("AirDouble");
+                }
+                else
         if(doubleJumped)
                 {
                     animator.SetBool("DoubleJump", true);
@@ -296,8 +309,8 @@ if (Input.GetKeyDown(jumpKey) && !isInMove && !isAttacking)
         else { animator.SetBool("IsJumping", true); }
         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         doubleJumped = !doubleJumped;
-        jumpPower = 35;
-    }
+                jumpPower = 35;
+            }
 }
 if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
 {
@@ -364,6 +377,17 @@ if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
     public void ResetPunch() {
         canPunch = true;
     }
+   public void UppercutActivation()
+    {
+        UppercutCollider.enabled = true;
+    }
+    public void UppercutDeactivation()
+    {
+        UppercutCollider.enabled = false;
+    }
+    public void PunchColliderControler()
+    {
+        punchCollider.enabled = false;
+    }
    
-    
 }

@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -106,9 +106,106 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: AirAttackDoubleJump_0
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 198
+        width: 138
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b3529de1d1cdb147867d1e16aabd8f4
+      internalID: -331372540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirAttackDoubleJump_1
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 198
+        width: 120
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2179ae37d1eb779489fd0be78ce29ede
+      internalID: 1155343679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirAttackDoubleJump_8
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 36
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f36776f9eb0bb8419b6154c4ad99009
+      internalID: -1769480527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AirAttackDoubleJump_11
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 24
+        width: 126
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f593a3dae80caf5439a681b287fe63b9
+      internalID: -1689298342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +216,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AirAttackDoubleJump_0: -331372540
+      AirAttackDoubleJump_1: 1155343679
+      AirAttackDoubleJump_10: 796610688
+      AirAttackDoubleJump_11: -1689298342
+      AirAttackDoubleJump_12: -669957359
+      AirAttackDoubleJump_13: -793671228
+      AirAttackDoubleJump_2: -1192617257
+      AirAttackDoubleJump_3: 375230596
+      AirAttackDoubleJump_4: -1721267268
+      AirAttackDoubleJump_5: -1932800177
+      AirAttackDoubleJump_6: 86211694
+      AirAttackDoubleJump_7: 1651383394
+      AirAttackDoubleJump_8: -1769480527
+      AirAttackDoubleJump_9: -146044345
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
