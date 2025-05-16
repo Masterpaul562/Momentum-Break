@@ -5,7 +5,10 @@ using UnityEngine;
 public class PlayerSpawn : MonoBehaviour
 {
     public GameObject player;
+    public GameObject Enemy;
+    public Transform endPosition;
     public Animator animator;
+    public Animator Enemyanimator;
     
     void Start()
     {
@@ -21,9 +24,15 @@ public class PlayerSpawn : MonoBehaviour
         }
 
     }
+    public void MoveThis(){
+        transform.position = endPosition.position;
+        Enemy.transform.position = endPosition.position;
+        Enemyanimator.SetTrigger("Die");
+    }
     public void destroyThis(){
-        //player.SetActive(true);
-       // player.transform.position = this.gameObject.transform.position;
-      //  Destroy(this.gameObject);
+        player.SetActive(true);
+        player.transform.position = this.gameObject.transform.position;
+        Destroy(this.gameObject);
+        Destroy(Enemy);
     }
 }
