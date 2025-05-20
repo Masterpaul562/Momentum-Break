@@ -23,6 +23,7 @@ public class DoorWalking : MonoBehaviour
         if(y ==1 && other.gameObject == player)
         {
             player.transform.position = exit.position;
+            player.GetComponent<Move_Player>().hasEnteredRoom = true;
         }
     }
 }

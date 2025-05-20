@@ -19,7 +19,8 @@ public class Move_Player : MonoBehaviour
     public KeyCode attackKey = KeyCode.Z;
     public KeyCode specailAtkKey = KeyCode.C;
 
-    //Movement Variables
+    //Movement Variables'
+    public bool hasEnteredRoom = false; 
     [SerializeField] public float jumpPower;
     [SerializeField] private float moveSpeed;
     [SerializeField] private Transform groundCheck;
