@@ -235,7 +235,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player_DoubleJump
-  m_Speed: 0.22
+  m_Speed: 0.16
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1102302843405101593}

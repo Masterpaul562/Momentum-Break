@@ -147,7 +147,7 @@ TextureImporter:
       name: BreakOut_1
       rect:
         serializedVersion: 2
-        x: 234
+        x: 235
         y: 996
         width: 108
         height: 138
@@ -168,8 +168,8 @@ TextureImporter:
       name: BreakOut_3
       rect:
         serializedVersion: 2
-        x: 395
-        y: 996
+        x: 412
+        y: 997
         width: 139
         height: 138
       alignment: 0
@@ -189,12 +189,12 @@ TextureImporter:
       name: BreakOut_4
       rect:
         serializedVersion: 2
-        x: 588
+        x: 590
         y: 996
         width: 138
         height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.60526973, y: 0.51169664}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: BreakOut_5
       rect:
         serializedVersion: 2
-        x: 780
+        x: 779
         y: 996
         width: 150
         height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5753263, y: 0.5000009}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,7 +231,7 @@ TextureImporter:
       name: BreakOut_6
       rect:
         serializedVersion: 2
-        x: 12
+        x: 10
         y: 804
         width: 174
         height: 138
@@ -252,9 +252,9 @@ TextureImporter:
       name: BreakOut_9
       rect:
         serializedVersion: 2
-        x: 257
+        x: 221
         y: 804
-        width: 79
+        width: 114
         height: 138
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -294,9 +294,9 @@ TextureImporter:
       name: BreakOut_11
       rect:
         serializedVersion: 2
-        x: 599
+        x: 605
         y: 804
-        width: 121
+        width: 114
         height: 138
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -315,9 +315,9 @@ TextureImporter:
       name: BreakOut_12
       rect:
         serializedVersion: 2
-        x: 773
+        x: 797
         y: 804
-        width: 139
+        width: 114
         height: 138
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -336,11 +336,11 @@ TextureImporter:
       name: BreakOut_38
       rect:
         serializedVersion: 2
-        x: 114
+        x: 89
         y: 612
-        width: 30
+        width: 61
         height: 138
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -357,9 +357,9 @@ TextureImporter:
       name: BreakOut_39
       rect:
         serializedVersion: 2
-        x: 294
+        x: 250
         y: 612
-        width: 42
+        width: 98
         height: 138
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -702,59 +702,59 @@ TextureImporter:
     nameFileIdTable:
       BreakOut_0: 1873271856
       BreakOut_1: 563778078
-      BreakOut_10: 2108883618
-      BreakOut_11: 88466045
-      BreakOut_12: -1225270031
-      BreakOut_13: -1637726684
-      BreakOut_14: 1765544013
-      BreakOut_15: -1508026260
-      BreakOut_16: 571943357
-      BreakOut_17: -1437935557
-      BreakOut_18: -867623867
-      BreakOut_19: -1029979443
-      BreakOut_2: 1747343826
-      BreakOut_20: 1553100778
-      BreakOut_21: -547426081
-      BreakOut_22: 967374175
-      BreakOut_23: -1238721255
-      BreakOut_24: 41956557
-      BreakOut_25: 496064250
-      BreakOut_26: -1864225749
-      BreakOut_27: -137442983
-      BreakOut_28: 321678926
-      BreakOut_29: 625362414
-      BreakOut_3: -152097543
-      BreakOut_30: 649489831
-      BreakOut_31: -1815139638
-      BreakOut_32: -1971500637
-      BreakOut_33: 2015104460
-      BreakOut_34: 1192277767
-      BreakOut_35: -168997533
-      BreakOut_36: -152552093
-      BreakOut_37: -438887510
-      BreakOut_38: -1807592576
-      BreakOut_39: -1701867408
-      BreakOut_4: -318868618
-      BreakOut_40: -1992041828
-      BreakOut_41: -24587617
-      BreakOut_42: 1030310480
-      BreakOut_43: 432517881
-      BreakOut_44: 1414813626
-      BreakOut_45: -1120719987
-      BreakOut_46: 1507940110
-      BreakOut_47: -553068243
-      BreakOut_48: 1288396091
-      BreakOut_49: 1939780726
-      BreakOut_5: 1824662052
-      BreakOut_50: -1076369901
-      BreakOut_51: 1412677889
-      BreakOut_52: -245572116
-      BreakOut_53: 1002899095
-      BreakOut_54: -2142175698
-      BreakOut_6: -1404983759
-      BreakOut_7: -1948314689
-      BreakOut_8: 228430818
-      BreakOut_9: 715160427
+      BreakOut_10: 1747343826
+      BreakOut_11: -152097543
+      BreakOut_12: -318868618
+      BreakOut_13: 1824662052
+      BreakOut_14: -1404983759
+      BreakOut_15: -1948314689
+      BreakOut_16: 228430818
+      BreakOut_17: 715160427
+      BreakOut_18: 2108883618
+      BreakOut_19: 88466045
+      BreakOut_2: -1225270031
+      BreakOut_20: -1637726684
+      BreakOut_21: 1765544013
+      BreakOut_22: -1508026260
+      BreakOut_23: 571943357
+      BreakOut_24: -1437935557
+      BreakOut_25: -867623867
+      BreakOut_26: -1029979443
+      BreakOut_27: 1553100778
+      BreakOut_28: -547426081
+      BreakOut_29: 967374175
+      BreakOut_3: -1238721255
+      BreakOut_30: 41956557
+      BreakOut_31: 496064250
+      BreakOut_32: -1864225749
+      BreakOut_33: -137442983
+      BreakOut_34: 321678926
+      BreakOut_35: 625362414
+      BreakOut_36: 649489831
+      BreakOut_37: -1815139638
+      BreakOut_38: -1971500637
+      BreakOut_39: 2015104460
+      BreakOut_4: 1192277767
+      BreakOut_40: -168997533
+      BreakOut_41: -152552093
+      BreakOut_42: -438887510
+      BreakOut_43: -1807592576
+      BreakOut_44: -1701867408
+      BreakOut_45: -1992041828
+      BreakOut_46: -24587617
+      BreakOut_47: 1030310480
+      BreakOut_48: 432517881
+      BreakOut_49: 1414813626
+      BreakOut_5: -1120719987
+      BreakOut_50: 1507940110
+      BreakOut_51: -553068243
+      BreakOut_52: 1288396091
+      BreakOut_53: 1939780726
+      BreakOut_54: -1076369901
+      BreakOut_6: 1412677889
+      BreakOut_7: -245572116
+      BreakOut_8: 1002899095
+      BreakOut_9: -2142175698
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
