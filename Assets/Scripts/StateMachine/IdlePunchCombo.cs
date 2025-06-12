@@ -13,6 +13,7 @@ public class IdlePunchCombo : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Player.GetComponent<Move_Player>().UpAirCollider.enabled = false;
+        Player.GetComponent<Move_Player>().DownAirCollider.enabled = false;
         animator.SetBool("InAirAttack", false);
         Player.GetComponent<Move_Player>().punchCollider.enabled = false;
         animator.SetBool("isThirdAttack", false);

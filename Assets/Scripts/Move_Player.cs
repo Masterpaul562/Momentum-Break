@@ -41,6 +41,7 @@ public class Move_Player : MonoBehaviour
     // Air Attacks
     public bool InAirFall;
     public bool shouldAirDouble;
+    public Collider2D DownAirCollider;
     public Collider2D UpAirCollider;
     public bool airPunched;
     public bool canAirPunch = true;

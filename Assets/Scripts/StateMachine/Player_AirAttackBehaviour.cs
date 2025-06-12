@@ -25,13 +25,15 @@ public class Player_AirAttackBehaviour : StateMachineBehaviour
             float vert = Input.GetAxisRaw("Vertical");
             
            Player.GetComponent<Move_Player>().airPunched=false;
-           animator.SetTrigger("AirAttack");
+          
            animator.SetBool("InAirAttack",true);
            if(vert>0.01f){
                 // Player.GetComponent<Move_Player>().NormalPunch(5,40);
+                animator.SetTrigger("AirAttack");
                 Player.GetComponent<Move_Player>().UpAirCollider.enabled = true;
             } else {
-                 //Player.GetComponent<Move_Player>().NormalPunch(5,-100);
+                animator.SetTrigger("AirAttackDown");
+                Player.GetComponent<Move_Player>().DownAirCollider.enabled = true;
             }
            
         }
