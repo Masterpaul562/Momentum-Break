@@ -7,6 +7,8 @@ public class DoorWalking : MonoBehaviour
     [SerializeField] private GameObject player;
     private Transform exit;
     private float y;
+    public bool isExit;
+    public int enemiesAlive; 
 
     private void Start()
     {
@@ -23,7 +25,13 @@ public class DoorWalking : MonoBehaviour
         if(y ==1 && other.gameObject == player)
         {
             player.transform.position = exit.position;
-            player.GetComponent<Move_Player>().hasEnteredRoom = true;
+            if (!isExit)
+            {
+                player.GetComponent<Move_Player>().hasEnteredRoom = true;
+            }else
+            {
+                player.GetComponent<Move_Player>().hasEnteredRoom = false;
+            }
         }
     }
 }

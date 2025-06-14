@@ -9,6 +9,7 @@ public abstract class EnemyBase : MonoBehaviour
     public float atkSpeed;
     public GameObject player;
     public Rigidbody2D rb;
+    public GameObject Spawner;
 
     void Start()
     {

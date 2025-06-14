@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private bool shouldSpawn = true;
+    private Vector3 position;
     public GameObject PlayerRef;
     public GameObject Enemy;
-    void Update()
+    public int count;
+    void Start()
     {
-        if (shouldSpawn)
+     position = new Vector3(Random.Range(55, 70), transform.position.y);
+        for (int i = 0; i < 6; i++)
         {
-            shouldSpawn = false;
-            StartCoroutine(shouldSpawnE());
-        }
-         IEnumerator shouldSpawnE()
-        {
-            yield return new WaitForSeconds(5);
-            shouldSpawn = true;
-            var newEnemy = Instantiate(Enemy, transform.position, transform.rotation);
+            var newEnemy = Instantiate(Enemy, position, transform.rotation);
             newEnemy.GetComponent<EnemyBase>().player = PlayerRef;
+            newEnemy.GetComponent<EnemyBase>().Spawner = this.gameObject;
+            position = new Vector3(Random.Range(55, 70), transform.position.y);
+            count = i+1;
         }
     }
 }
