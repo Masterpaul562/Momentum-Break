@@ -8,7 +8,8 @@ public class DoorWalking : MonoBehaviour
     private Transform exit;
     private float y;
     public bool isExit;
-    public int enemiesAlive; 
+    public int enemiesAlive;
+    public GameObject Spawner;
 
     private void Start()
     {
@@ -24,13 +25,18 @@ public class DoorWalking : MonoBehaviour
     {
         if(y ==1 && other.gameObject == player)
         {
-            player.transform.position = exit.position;
+           
             if (!isExit)
             {
+                player.transform.position = exit.position;
                 player.GetComponent<Move_Player>().hasEnteredRoom = true;
             }else
             {
-                player.GetComponent<Move_Player>().hasEnteredRoom = false;
+                if (Spawner.GetComponent<EnemySpawner>().count == 0)
+                {
+                    player.GetComponent<Move_Player>().hasEnteredRoom = false;
+                    player.transform.position = exit.position;
+                }
             }
         }
     }

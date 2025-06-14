@@ -13,19 +13,22 @@ private bool isFacingRight = true;
     
 
 private void Awake() {
+
     health = 6;
 }
     private void Update()
     {
         //Debug.Log(transform.localScale.x);
         if (health<= 0){
+           
+                
             
             animator.SetBool("DIE",true);
             animator.SetBool("shouldHurt",false);
             animator.SetBool("isHurting",false);
             if(animator.GetBool("Perishes")){
                Destroy(this.gameObject);
-               
+                Spawner.GetComponent<EnemySpawner>().count -= 1;
             }
         }
         animator.SetBool("IsGrounded",IsGrounded());

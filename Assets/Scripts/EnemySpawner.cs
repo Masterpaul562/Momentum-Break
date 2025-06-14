@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject PlayerRef;
     public GameObject Enemy;
     public int count;
+    
     void Start()
     {
      position = new Vector3(Random.Range(55, 70), transform.position.y);
@@ -20,4 +21,5 @@ public class EnemySpawner : MonoBehaviour
             count = i+1;
         }
     }
+   
 }

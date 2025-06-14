@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health_Player : MonoBehaviour
 {
@@ -19,4 +20,12 @@ public void TakeDamage(int damage)
         animator.SetTrigger("TakeDamage");
         healthBar.SetHealth(currentHealth);
     }
+    void Update()
+    {
+        if(currentHealth <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+    }
+    
 }
