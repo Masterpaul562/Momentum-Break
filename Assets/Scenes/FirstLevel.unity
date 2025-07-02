@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 275792357}
   - component: {fileID: 275792356}
   - component: {fileID: 275792355}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TutorailStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5875,7 +5875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 449458108}
   - component: {fileID: 449458107}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5996,7 +5996,7 @@ GameObject:
   m_Component:
   - component: {fileID: 473218556}
   - component: {fileID: 473218555}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6271,7 +6271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 588195528}
   - component: {fileID: 588195527}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6736,7 +6736,7 @@ Transform:
   m_GameObject: {fileID: 669721901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.08, y: -4.12, z: 0}
+  m_LocalPosition: {x: 4.75, y: -4.12, z: 0}
   m_LocalScale: {x: 1.89, y: 2.092, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7672,7 +7672,7 @@ GameObject:
   - component: {fileID: 994576135}
   - component: {fileID: 994576137}
   - component: {fileID: 994576136}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24926,7 +24926,7 @@ GameObject:
   - component: {fileID: 1318140729}
   - component: {fileID: 1318140731}
   - component: {fileID: 1318140730}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25945,7 +25945,7 @@ GameObject:
   - component: {fileID: 1610908024}
   - component: {fileID: 1610908026}
   - component: {fileID: 1610908025}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26205,7 +26205,7 @@ GameObject:
   - component: {fileID: 1667947450}
   - component: {fileID: 1667947449}
   - component: {fileID: 1667947448}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FightingTutorail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26562,7 +26562,7 @@ GameObject:
   - component: {fileID: 1870857151}
   - component: {fileID: 1870857150}
   - component: {fileID: 1870857149}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TutorailShootFist
   m_TagString: Untagged
   m_Icon: {fileID: 0}

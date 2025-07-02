@@ -10,6 +10,7 @@ public class DoorWalking : MonoBehaviour
     public bool isExit;
     public int enemiesAlive;
     public GameObject Spawner;
+   
 
     private void Start()
     {
@@ -28,12 +29,14 @@ public class DoorWalking : MonoBehaviour
            
             if (!isExit)
             {
+                player.GetComponent<Move_Player>().animator.SetTrigger("DoorBreak");
                 player.transform.position = exit.position;
                 player.GetComponent<Move_Player>().hasEnteredRoom = true;
             }else
             {
                 if (Spawner.GetComponent<EnemySpawner>().count == 0)
                 {
+                    player.GetComponent<Move_Player>().animator.SetTrigger("DoorBreak");
                     player.GetComponent<Move_Player>().hasEnteredRoom = false;
                     player.transform.position = exit.position;
                 }

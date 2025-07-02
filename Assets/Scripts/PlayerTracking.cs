@@ -9,6 +9,6 @@ public class PlayerTracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, -1); ; 
+        this.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, -3); ; 
     }
 }
