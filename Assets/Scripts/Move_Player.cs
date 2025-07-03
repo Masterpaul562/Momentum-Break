@@ -69,8 +69,8 @@ public class Move_Player : MonoBehaviour
     [SerializeField] private GameObject punchArrow;
     [SerializeField] private GameObject punchProjectile;
     [SerializeField] private Transform spawnLocation;
-    
-    
+
+    public bool doorExplode = false;
 
 
 
@@ -81,11 +81,13 @@ public class Move_Player : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-      
+        doorExplode = false;
+
     }
 
     void Update()
     {
+        rb.AddForce(Vector2.zero);
         animator.SetBool("AirFall", InAirFall);
         
         if (IsGrounded()){
@@ -399,4 +401,9 @@ if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
   public void ResetDouble() {
      animator.SetBool("DoubleJump",false);
    }
+    public void DoorExplode()
+    {
+        doorExplode = true;
+    }
+   
 }
