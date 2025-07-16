@@ -6,6 +6,7 @@ public class Move_Player : MonoBehaviour
 {
 
     // Animation
+    public CameraShake cameraShake;
     public Color freezeColor;
     public Color normalColor;
     private SpriteRenderer spriteRenderer;
@@ -27,7 +28,7 @@ public class Move_Player : MonoBehaviour
     private bool isFacingRight = true;
     public bool doubleJumped;
     public LayerMask whatIsGround;
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     // Normal Punch
     public bool canPunch = true;
@@ -148,7 +149,8 @@ public class Move_Player : MonoBehaviour
 
             if (IsGrounded() && Input.GetKeyDown(specailAtkKey))
             {
-                
+                cameraShake.rumble = true;
+                StartCoroutine(cameraShake.Rumble(0.05f));
                 shouldFire = !shouldFire;
                 rb.velocity = new Vector2(0, 0);
                 punchArrow.SetActive(true);
@@ -159,8 +161,8 @@ public class Move_Player : MonoBehaviour
            
             if (Input.GetKeyUp(specailAtkKey) && IsGrounded()&& shouldFire)
             {
-               
-                shouldFire= !shouldFire;
+                cameraShake.rumble = false;
+                shouldFire = !shouldFire;
                 punchCoolDown = !punchCoolDown;
                 animator.SetBool("IsArmFiring",false); 
                 var newProjectile = Instantiate(punchProjectile, spawnLocation.position, transform.rotation);
@@ -205,6 +207,8 @@ public class Move_Player : MonoBehaviour
         // Slam
         if (!slamCoolDown) { 
         if (Input.GetKeyDown(specailAtkKey) && !IsGrounded()) {
+                cameraShake.rumble = true;
+                StartCoroutine(cameraShake.Rumble(0.05f));
             rb.velocity = new Vector2(0, 0);
             arrow.SetActive(true);
             spriteRenderer.color = freezeColor;
@@ -221,7 +225,7 @@ public class Move_Player : MonoBehaviour
         }
         if (Input.GetKeyUp(specailAtkKey) && !IsGrounded())
         {
-
+                cameraShake.rumble = false;
             RaycastHit2D endSlamPos = Physics2D.Raycast(arrow.transform.GetChild(1).position, slamDir, Mathf.Infinity, slamTarget);
 
             if (endSlamPos.collider != null)

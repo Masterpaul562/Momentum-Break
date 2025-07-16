@@ -45,6 +45,7 @@ public class DoorWalking : MonoBehaviour
             {
                 player.GetComponent<Move_Player>().hasEnteredRoom = true;
                 player.GetComponent<Move_Player>().animator.SetBool("DoorBreak", true);
+                player.GetComponent<Move_Player>().rb.velocity = new Vector2(0, 0); 
                 player.GetComponent<Move_Player>().isAttacking = true;
 
 
@@ -55,6 +56,7 @@ public class DoorWalking : MonoBehaviour
                 {                 
                     player.GetComponent<Move_Player>().hasEnteredRoom = false;
                     player.GetComponent<Move_Player>().animator.SetBool("DoorBreak", true);
+                    player.GetComponent<Move_Player>().rb.velocity = new Vector2(0, 0);
                     player.GetComponent<Move_Player>().isAttacking = true;
                 }
             }
