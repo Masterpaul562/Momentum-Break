@@ -50,6 +50,9 @@ public class Move_Player : MonoBehaviour
     //Special Move Variables
     private bool isInMove = false;
     //Slam
+    [SerializeField] private GameObject slamMeter;
+    private bool holdingDown;
+    private float charge = 0;
     public float minRotation;
     public float maxRotation;
     private float trackRot;
@@ -88,6 +91,9 @@ public class Move_Player : MonoBehaviour
 
     void Update()
     {
+       
+        Debug.Log(charge);
+        
         rb.AddForce(Vector2.zero);
         animator.SetBool("AirFall", InAirFall);
         
@@ -205,54 +211,68 @@ public class Move_Player : MonoBehaviour
             }
         }
         // Slam
-        if (!slamCoolDown) { 
+        if (!slamCoolDown) {
+           
         if (Input.GetKeyDown(specailAtkKey) && !IsGrounded()) {
+                slamMeter.SetActive(true);
+                holdingDown = true;
+               charge = 0;
                 cameraShake.rumble = true;
-                StartCoroutine(cameraShake.Rumble(0.05f));
+                
             rb.velocity = new Vector2(0, 0);
             arrow.SetActive(true);
             spriteRenderer.color = freezeColor;
             animator.SetBool("IsJumping",false);
             animator.SetBool("DoubleJump",false);
-                
-            if (Input.GetKey(specailAtkKey) && !IsGrounded())
-            {
                 isInMove = true;
                 rb.gravityScale = 0;
-                    animator.SetBool("IsInSlam", true);
-                
-                }
+                animator.SetBool("IsInSlam", true);
+                StartCoroutine(SlamCharge());
+               
         }
         if (Input.GetKeyUp(specailAtkKey) && !IsGrounded())
         {
-                cameraShake.rumble = false;
-            RaycastHit2D endSlamPos = Physics2D.Raycast(arrow.transform.GetChild(1).position, slamDir, Mathf.Infinity, slamTarget);
-
-            if (endSlamPos.collider != null)
-            {
-                    if (arrow.transform.rotation.z > 0)
-                    {
-                        transform.position = new Vector3(endSlamPos.point.x-1, endSlamPos.point.y + 1, 0);
-                    } else if (arrow.transform.rotation.z < 0)
-                    {
-                        transform.position = new Vector3(endSlamPos.point.x + 1, endSlamPos.point.y + 1, 0);
-                    }
-                    else {
-                        transform.position = new Vector3(endSlamPos.point.x , endSlamPos.point.y+1, 0);
-                    }
-                   
-                StartCoroutine(HitBoxDer());
-                arrow.SetActive(false);
-                trackRot = 0;
-                isInMove = false;
-                arrow.transform.eulerAngles = new Vector3(0, 0, 0);
-                spriteRenderer.color = normalColor;
-            }
-                slamCoolDown = !slamCoolDown;
-                animator.SetBool("IsInSlam", false);
                 
-                StartCoroutine(startSlamCoolDown());
-        }
+                if (charge >= 1)
+                {
+                    RaycastHit2D endSlamPos = Physics2D.Raycast(arrow.transform.GetChild(1).position, slamDir, Mathf.Infinity, slamTarget);
+
+                    if (endSlamPos.collider != null)
+                    {
+                        if (arrow.transform.rotation.z > 0)
+                        {
+                            transform.position = new Vector3(endSlamPos.point.x - 1, endSlamPos.point.y + 1, 0);
+                        }
+                        else if (arrow.transform.rotation.z < 0)
+                        {
+                            transform.position = new Vector3(endSlamPos.point.x + 1, endSlamPos.point.y + 1, 0);
+                        }
+                        else
+                        {
+                            transform.position = new Vector3(endSlamPos.point.x, endSlamPos.point.y + 1, 0);
+                        }
+
+                        StartCoroutine(HitBoxDer());
+                        
+                        
+                        isInMove = false;
+                        arrow.transform.eulerAngles = new Vector3(0, 0, 0);
+                      
+                    }
+                    slamCoolDown = !slamCoolDown;
+                    animator.SetBool("IsInSlam", false);        
+                    StartCoroutine(startSlamCoolDown());
+                }
+                slamMeter.SetActive(false);
+                holdingDown = false;
+                trackRot = 0;
+                arrow.SetActive(false);
+                isInMove = false;
+                cameraShake.rumble = false;
+                animator.SetBool("IsInSlam", false);
+                spriteRenderer.color = normalColor;
+                charge = 0;
+            }
     }
         //Rotation of arrow and direction of slam
         if (isInMove && !IsGrounded())
@@ -409,5 +429,20 @@ if (Input.GetKeyUp(jumpKey) && rb.velocity.y > 0f)
     {
         doorExplode = true;
     }
-   
+    private IEnumerator SlamCharge()
+    {
+        while (holdingDown)
+        {
+            if (Input.GetKey(specailAtkKey) && !IsGrounded())
+            {
+                yield return new WaitForSeconds(0.15f);              
+                charge += 0.1f;
+                charge = Mathf.Clamp(charge, 0, 1);
+                StartCoroutine(cameraShake.Rumble(charge/15));
+                Vector3 scale = new Vector3(0.1f, charge,0);             
+                    slamMeter.transform.localScale = scale;
+                
+            }
+        }
+    }
 }
