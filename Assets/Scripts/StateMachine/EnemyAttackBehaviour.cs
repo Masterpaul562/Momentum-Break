@@ -26,7 +26,7 @@ public class EnemyAttackBehaviour : StateMachineBehaviour
             {
         animator.SetBool("shouldHurt", true);
             }
-        
+        animator.SetBool("turnOn", true);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

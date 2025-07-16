@@ -25,6 +25,7 @@ public class Enemy_HurtBehaviour : StateMachineBehaviour
         animator.SetBool("isHurting", false);
         animator.SetBool("shouldHurtTransition", true);
         animator.SetBool("shouldAttack", true);
+        animator.SetBool("turnOn", true);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

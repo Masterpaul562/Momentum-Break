@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyControler : EnemyBase
 {
+    private bool shouldExploded= false;
+    public BoxCollider2D AEOcollider;
+    public GameObject collider;
 public LayerMask hitPlayer;
 public Animator animator;
 [SerializeField] private Transform groundCheck;
@@ -14,10 +17,21 @@ private bool isFacingRight = true;
 
 private void Awake() {
 
-    health = 6;
+    health = 60000;
 }
     private void Update()
     {
+        if (animator.GetBool("turnOn") == true)
+        {
+            collider.SetActive(true);
+        }
+        if (shouldExploded && IsGrounded())
+        {
+            
+            StartCoroutine(turnOffAEO());
+            shouldExploded = false;
+        }
+        
         //Debug.Log(transform.localScale.x);
         if (health<= 0){
            
@@ -34,6 +48,7 @@ private void Awake() {
         animator.SetBool("IsGrounded",IsGrounded());
         if (IsGrounded())
         {
+            
             rb.gravityScale = 7;
             rb.drag = 5;
         }else
@@ -69,6 +84,8 @@ private void Awake() {
          }else {
             if(Physics2D.Raycast(this.transform.position,new Vector2 (this.transform.localScale.x,0), 1.5f, hitPlayer)&&animator.GetBool("shouldAttack") ==true && animator.GetBool("isHurting" )== false)
             {
+                collider.SetActive(false);
+                animator.SetBool("turnOn", false);
                 rb.velocity = new Vector2(0, 0);
                 animator.SetBool("shouldAttack", false);
                 animator.SetTrigger("EnemyAttack");
@@ -83,7 +100,7 @@ private void Awake() {
                 }
                 
             }
-            //rb.constraints = RigidbodyConstraints2D.FreezePositionX| RigidbodyConstraints2D.FreezeRotation;
+           
          }
        
        
@@ -95,7 +112,10 @@ private void Awake() {
         
 
         int random = Random.Range(1, 4);
-   
+    if (knockBackUp == -140)
+        {
+            shouldExploded = true;
+        }
         
         if (random == 1)
         {
@@ -114,6 +134,8 @@ private void Awake() {
             animator.SetBool("Hurt1", false);
             animator.SetBool("Hurt2", true);
         }
+        collider.SetActive(false);
+        animator.SetBool("turnOn", false);
         Vector3 newPlayerPos = new Vector3(player.transform.position.x, this.transform.position.y, 0);
         Vector3 KnockBackDirection = (this.transform.position - newPlayerPos).normalized;
         rb.AddForce(new Vector2(KnockBackDirection.x *knockBack , 0), ForceMode2D.Impulse);
@@ -135,5 +157,12 @@ private void Awake() {
     public bool IsGrounded()
     {
         return Physics2D.OverlapBox(groundCheck.position, new Vector2(1, 0.5f), 0, whatIsGround);
+    }
+   private IEnumerator turnOffAEO()
+    {
+     
+        AEOcollider.enabled = true;
+        yield return new WaitForSeconds(0.2f);
+        AEOcollider.enabled = false;
     }
 }

@@ -13,7 +13,8 @@ public class SlamTriggerCollider : MonoBehaviour
             if (other.gameObject.tag == "Enemy")
             {
                 Player.enabled = false;
-                other.GetComponent<EnemyBase>().BaseHit(2,30,60);
+
+                other.GetComponent<EnemyBase>().BaseHit(2,30,10);
                 Player.enabled = true;
             }
         }

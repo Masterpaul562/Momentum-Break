@@ -92,7 +92,7 @@ public class Move_Player : MonoBehaviour
     void Update()
     {
        
-        Debug.Log(charge);
+       
         
         rb.AddForce(Vector2.zero);
         animator.SetBool("AirFall", InAirFall);
